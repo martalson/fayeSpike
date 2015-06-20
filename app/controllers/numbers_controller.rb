@@ -3,7 +3,7 @@ class NumbersController < ApplicationController
 
     def refresh
         puts "in refresh"
-        client = Faye::Client.new('http://localhost:3000/faye')
+        client = Faye::Client.new('https://sheltered-plateau-4876.herokuapp.com/faye')
         puts Time.now
         loop do
             client.publish("/nupdate", {

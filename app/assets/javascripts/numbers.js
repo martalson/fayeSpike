@@ -1,5 +1,5 @@
 $(function(){
-    var client = new Faye.Client('http://localhost:3000/faye');
+    var client = new Faye.Client('https://sheltered-plateau-4876.herokuapp.com/faye');
     var subscription = client.subscribe('/nupdate', function(message){
         console.log(message);
     }); 
