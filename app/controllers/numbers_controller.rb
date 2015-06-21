@@ -4,12 +4,16 @@ class NumbersController < ApplicationController
     def refresh
         puts "in refresh"
         client = Faye::Client.new('https://sheltered-plateau-4876.herokuapp.com/faye')
-        puts Time.now
-        loop do
+        EM.defer do
+            puts Time.now
+            client.publish("/nupdate", {
+                    'number' => 5
+                })
+            sleep 75
             client.publish("/nupdate", {
                 'number' => 5
             })
-            sleep 5
+            puts Time.now
         end
     end
 
